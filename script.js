@@ -2,7 +2,7 @@ let userChoice = 0;
 let systemChoice = 0;
 let userScore = 0;
 let systemScore = 0;
-let roundCount = 0;
+let roundCount = 1;
 function getUserChoise(){
     userChoice = parseInt(prompt("Enter your choice: 1.Rock 2.Paper 3.Scissor"));
     console.log(`User choice: ${getChoice(userChoice)}`);
@@ -64,6 +64,19 @@ function addScore(winner){
     console.log(`System score: ${systemScore}`);
 }
 
+function showWinner(uscore, sscore){
+    if (uscore>sscore){
+        console.log("User wing the game!");
+    }
+
+    else if(sscore>uscore){
+        console.log("System wins the game!");
+    }
+    else{
+        console.log("Game Draw!");
+    }
+}
+
 function playRound(){
     getUserChoise();
     getSystemChoice();
@@ -74,6 +87,7 @@ function playRound(){
     if(roundCount<5){
         roundCount++;
         playRound();
+        showWinner(userScore, systemScore);
     }
 
 }
