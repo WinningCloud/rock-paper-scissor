@@ -78,17 +78,25 @@ function showWinner(uscore, sscore){
 }
 
 function playRound(){
-    getUserChoise();
-    getSystemChoice();
-    let myWinner = getWinner(userChoice, systemChoice);
-    console.log(`Winner: ${myWinner}`);
-    addScore(myWinner);
-    
-    if(roundCount<5){
-        roundCount++;
-        playRound();
-        showWinner(userScore, systemScore);
-    }
 
+        roundCount++;
+        getUserChoise();
+         getSystemChoice();
+         let myWinner = getWinner(userChoice, systemChoice);
+         console.log(`Winner: ${myWinner}`);
+         addScore(myWinner);
+        check_next_round();
+    
 }
-playRound();
+
+
+function check_next_round(){
+    if(roundCount<=5){
+    playRound();
+}
+else{
+    showWinner(userScore, systemScore);
+}
+}
+check_next_round();
+
