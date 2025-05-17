@@ -64,17 +64,30 @@ function addScore(winner){
     console.log(`System score: ${systemScore}`);
 }
 
+
+
+const divResult = document.querySelector("#showResult");
+
+
+const resultText = document.createElement("p");
+
+resultText.style.color = "black";
+resultText.style.fontSize = "50px"
+
+
+
 function showWinner(uscore, sscore){
     if (uscore>sscore){
-        console.log("User wing the game!");
+        resultText.textContent = "User wing the game! check console for details";
     }
 
     else if(sscore>uscore){
-        console.log("System wins the game!");
+        resultText.textContent ="System wins the game! check console for details";
     }
     else{
-        console.log("Game Draw!");
+        resultText.textContent ="Game Draw! check console for details";
     }
+    divResult.appendChild(resultText);
 }
 
 function playRound(){
@@ -98,5 +111,12 @@ else{
     showWinner(userScore, systemScore);
 }
 }
-check_next_round();
+// check_next_round();
+
+const start_button = document.querySelector("#startBtn");
+start_button.addEventListener("click", check_next_round);
+
+
+
+
 
